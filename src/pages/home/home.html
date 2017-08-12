@@ -1,14 +1,30 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      To do list
     </ion-title>
+        <ion-buttons end (click)=presentModal()>
+      <button ion-button icon-only >
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-list>
+<ion-item-sliding *ngFor="let item of itemList" (click)="detailTapped(item)">
+ <ion-item >
+    <ion-icon name="done-all" *ngIf=" item.completed"></ion-icon>
+    {{item.title}}
+    
+    
+  </ion-item>
+      <ion-item-options side="right">
+      <button ion-button ><ion-icon name="checkmark" (click)="done(item)"></ion-icon>Mark done</button>
+      <button ion-button color="danger" (click)="deleteItem(item)"><ion-icon name="trash"></ion-icon>Delete</button>
+    </ion-item-options>
+    </ion-item-sliding>
+</ion-list>
 </ion-content>

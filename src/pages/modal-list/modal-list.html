@@ -1,0 +1,33 @@
+<!--
+  Generated template for the ModalListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Add to-do</ion-title>
+            <ion-buttons left >
+      <button ion-button icon-only (click)=close()>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Title" [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Description" [(ngModel)]="description"></ion-input>
+  </ion-item>
+</ion-list>
+<button ion-button block (click)="saveItem()">Save</button>
+</ion-content>
